@@ -21,8 +21,8 @@ export class User extends Model {
   @Column({ type: ClickHouseDataType.String, required: true, comment: "User's email address" })
   email!: string;
 
-  @Column({ type: ClickHouseDataType.UInt8, comment: "User's age" })
-  age!: number;
+  @Column({ type: ClickHouseDataType.UInt8, comment: "User's age", nullable: true })
+  age?: number;
 
   @Column({ type: ClickHouseDataType.DateTime, comment: "Timestamp of user creation" })
   created_at!: Date;

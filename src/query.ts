@@ -69,6 +69,8 @@ export class Query {
       if (data[key] !== undefined) {
         fields.push(columnName);
         values[columnName] = this.formatValue(data[key], field.type);
+      } else if (!field.nullable) {
+        throw new Error(`Field ${key} is required but not provided`);
       }
     }
 

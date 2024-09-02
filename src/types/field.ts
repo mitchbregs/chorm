@@ -5,7 +5,8 @@ export interface Field {
   required?: boolean;
   precision?: number;
   scale?: number;
-  itemType?: ClickHouseDataType; // For array fields
+  itemType?: ClickHouseDataType;
   comment?: string;
   columnName?: string;
+  nullable?: boolean;
 }
