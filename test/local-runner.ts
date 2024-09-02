@@ -14,22 +14,28 @@ async function runLocalTest() {
 
     console.log("Creating a user...");
     const user = await User.create({
+      id: '00000000-0000-0000-0000-000000000001',
       name: "John Doe",
       email: "john@example.com",
       age: 30,
+      created_at: new Date().toISOString(),
     });
     console.log("Created user:", user);
 
     console.log("Creating posts for the user...");
     await Post.create({
+      id: '00000000-0000-0000-0000-000000000001',
       title: "First Post",
       content: "Hello, world!",
       user_id: user.id,
+      created_at: new Date().toISOString(),
     });
     await Post.create({
+      id: '00000000-0000-0000-0000-000000000002',
       title: "Second Post",
       content: "ClickHouse ORM is awesome!",
       user_id: user.id,
+      created_at: new Date().toISOString(),
     });
     console.log("Posts created successfully");
 

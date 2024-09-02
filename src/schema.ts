@@ -39,7 +39,8 @@ export class Schema {
       const fields = Object.entries(model.fields)
         .map(([fieldName, field]) => {
           const columnName = field.columnName || fieldName;
-          let fieldDef = `${columnName} ${this.getClickHouseType(field)}`;
+          const columnType = field.nullable ? `Nullable(${this.getClickHouseType(field)})` : this.getClickHouseType(field);
+          let fieldDef = `${columnName} ${columnType}`;
           if (field.comment) {
             fieldDef += ` COMMENT '${field.comment.replace(/'/g, "''")}'`;
           }
