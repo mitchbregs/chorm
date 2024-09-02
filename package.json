@@ -1,5 +1,5 @@
 {
-  "name": "clickhouse-orm",
+  "name": "chorm",
   "version": "0.1.0",
   "description": "A ClickHouse ORM for TypeScript",
   "main": "dist/index.js",
@@ -9,23 +9,24 @@
   ],
   "scripts": {
     "build": "tsc",
-    "prebuild": "pnpm build",
-    "test:local": "node -r dotenv/config -r ts-node/register test/local-runner.ts"
+    "test:local-runner": "node -r dotenv/config -r ts-node/register test/local-runner.ts"
   },
   "keywords": [
     "clickhouse",
     "orm",
     "typescript"
   ],
-  "author": "Your Name",
+  "author": "Mitchell Bregman",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mitchbregs/chorm.git"
+  },
   "license": "MIT",
   "dependencies": {
-    "@clickhouse/client": "^0.0.14",
-    "uuid": "^8.3.2"
+    "@clickhouse/client": "^0.0.14"
   },
   "devDependencies": {
     "@types/node": "^14.14.31",
-    "@types/uuid": "^8.3.0",
     "dotenv": "^10.0.0",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.5"

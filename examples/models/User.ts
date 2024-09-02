@@ -3,7 +3,7 @@ import { Post } from "./Post";
 import { ClickHouseEngineEnum, RelationTypeEnum, ClickHouseDataType } from "../../src/types";
 
 @Table({
-  engine: ClickHouseEngineEnum.ReplacingMergeTree,
+  engine: ClickHouseEngineEnum.MergeTree,
   orderBy: ["id"],
   settings: {
     index_granularity: 8192

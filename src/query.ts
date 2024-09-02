@@ -72,11 +72,10 @@ export class Query {
       }
     }
 
-    const result = await this.client.insert({
+    await this.client.insert({
       table: tableName,
       values: [values],
       format: 'JSONEachRow',
-    //   query_id: 
     });
 
     return this.fetch(model, data, { limit: 1 });
