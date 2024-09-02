@@ -9,8 +9,6 @@ A powerful and intuitive Object-Relational Mapping (ORM) library for ClickHouse,
 - Automatic schema generation
 - CRUD operations with a simple API
 - Relationship handling (One-to-One, One-to-Many, Many-to-One)
-- Query builder with filtering, ordering, and pagination
-- Eager loading of related models
 - Custom table and column name mapping
 - Environment-based configuration
 
@@ -84,7 +82,7 @@ export class Post extends Model {
 ### Generating Schema
 
 ```typescript
-import { schema } from 'clickhouse-orm';
+import { schema } from 'chorm';
 
 async function generateSchema() {
     await schema.generateSchema();
@@ -116,16 +114,22 @@ const updatedUser = await User.update({ id: user.id }, { name: 'Jane Doe' });
 // Delete
 await User.delete({ id: user.id });
 
+// Create
+const newUser = await User.create({
+    id: uuidv4(),
+    name: 'Mitchell Bregman',
+});
+
 // Create with relations
 const post = await Post.create({
     id: uuidv4(),
     title: 'My First Post',
-    user_id: user.id,
+    user_id: newUser.id,
 });
 
 // Fetch with relations
 const userWithPosts = await User.fetch(
-    { id: user.id },
+    { id: newUser.id },
     {
         include: {
             posts: true
