@@ -1,3 +1,5 @@
+BTW - this totally does not work at the moment.
+
 # chorm
 
 A powerful and intuitive Object-Relational Mapping (ORM) library for ClickHouse, designed for TypeScript projects.
